@@ -5,7 +5,15 @@ class Box(object):
     """Box class.
     """
 
-    def __init__(self, x=None, y=None, z=None, w=None, h=None, d=None):
+    class InvalidValueException(Exception):
+        """
+        """
+        def __init__(self, ):
+            """
+            """
+            pass
+
+    def __init__(self, x=0, y=0, z=0, w=1, h=1, d=1):
         """Box Constructor.
 
         @param x x coordinate
@@ -15,6 +23,18 @@ class Box(object):
         @param h height(y) > 0
         @param d depth(z) > 0
         """
+        if not isinstance(x, int):
+            raise Box.InvalidValueException()
+        if not isinstance(y, int):
+            raise Box.InvalidValueException()
+        if not isinstance(z, int):
+            raise Box.InvalidValueException()
+        if not isinstance(w, int) or w <= 0:
+            raise Box.InvalidValueException()
+        if not isinstance(h, int) or h <= 0:
+            raise Box.InvalidValueException()
+        if not isinstance(d, int) or d <= 0:
+            raise Box.InvalidValueException()
         self._x = x
         self._y = y
         self._z = z
@@ -25,7 +45,7 @@ class Box(object):
     def _set_x(self, value):
         if isinstance(value, int):
             self._x = value
-        raise
+        raise Box.InvalidValueException()
 
     def _get_x(self):
         return self._x
@@ -33,7 +53,7 @@ class Box(object):
     def _set_y(self, value):
         if isinstance(value, int):
             self._y = value
-        self._y = value
+        raise Box.InvalidValueException()
 
     def _get_y(self):
         return self._y
@@ -41,7 +61,7 @@ class Box(object):
     def _set_z(self, value):
         if isinstance(value, int):
             self._z = value
-        self._z = value
+        raise Box.InvalidValueException()
 
     def _get_z(self):
         return self._z
@@ -49,7 +69,7 @@ class Box(object):
     def _set_w(self, value):
         if isinstance(value, int) and value > 0:
             self._w = value
-        self._w = value
+        raise Box.InvalidValueException()
 
     def _get_w(self):
         return self._w
@@ -57,7 +77,7 @@ class Box(object):
     def _set_h(self, value):
         if isinstance(value, int) and value > 0:
             self._h = value
-        self._h = value
+        raise Box.InvalidValueException()
 
     def _get_h(self):
         return self._h
@@ -65,7 +85,7 @@ class Box(object):
     def _set_d(self, value):
         if isinstance(value, int) and value > 0:
             self._d = value
-        self._d = value
+        raise Box.InvalidValueException()
 
     def _get_d(self):
         return self._d
