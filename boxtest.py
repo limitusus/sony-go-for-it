@@ -22,21 +22,21 @@ class BoxTestCase(unittest.TestCase):
         """
         self.assertRaises(Box.InvalidValueException, Box, x=1.0)
         self.assertRaises(Box.InvalidValueException, Box, x=0.1)
-        Box(x=1)
+        self.assertTrue(Box(x=1))
 
     def test_invalid_y(self, ):
         """Failure test of invalid constructor value of y.
         """
         self.assertRaises(Box.InvalidValueException, Box, y=1.0)
         self.assertRaises(Box.InvalidValueException, Box, y=0.1)
-        Box(y=1)
+        self.assertTrue(Box(y=1))
 
     def test_invalid_z(self, ):
         """Failure test of invalid constructor value of z.
         """
         self.assertRaises(Box.InvalidValueException, Box, z=1.0)
         self.assertRaises(Box.InvalidValueException, Box, z=0.1)
-        Box(z=1)
+        self.assertTrue(Box(z=1))
 
     def test_invalid_w(self, ):
         """Failure test of invalid constructor value of w.
@@ -45,7 +45,7 @@ class BoxTestCase(unittest.TestCase):
         self.assertRaises(Box.InvalidValueException, Box, w=0.1)
         self.assertRaises(Box.InvalidValueException, Box, w=0)
         self.assertRaises(Box.InvalidValueException, Box, w=-1)
-        Box(w=1)
+        self.assertTrue(Box(w=1))
 
     def test_invalid_h(self, ):
         """Failure test of invalid constructor value of w.
@@ -54,7 +54,7 @@ class BoxTestCase(unittest.TestCase):
         self.assertRaises(Box.InvalidValueException, Box, h=0.1)
         self.assertRaises(Box.InvalidValueException, Box, h=0)
         self.assertRaises(Box.InvalidValueException, Box, h=-1)
-        Box(h=1)
+        self.assertTrue(Box(h=1))
 
     def test_invalid_d(self, ):
         """Failure test of invalid constructor value of w.
@@ -63,7 +63,7 @@ class BoxTestCase(unittest.TestCase):
         self.assertRaises(Box.InvalidValueException, Box, d=0.1)
         self.assertRaises(Box.InvalidValueException, Box, d=0)
         self.assertRaises(Box.InvalidValueException, Box, d=-1)
-        Box(d=1)
+        self.assertTrue(Box(d=1))
 
     def test_inclusive_no_touch(self, ):
         """
