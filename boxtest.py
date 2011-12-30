@@ -111,6 +111,7 @@ class BoxTestCase(unittest.TestCase):
         self.assertFalse(Box.coord_intersect(0, 2, 2, 2))
         self.assertFalse(Box.coord_intersect(0, 2, 3, 2))
 
+        self.assertTrue(Box.coord_intersect(0, 1, 0, 1))
         self.assertTrue(Box.coord_intersect(0, 2, -1, 2))
         self.assertTrue(Box.coord_intersect(0, 2, 0, 1))
         self.assertTrue(Box.coord_intersect(0, 2, 1, 2))
