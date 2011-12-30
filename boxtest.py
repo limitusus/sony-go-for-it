@@ -103,6 +103,19 @@ class BoxTestCase(unittest.TestCase):
         self.assertFalse(self.base_box.intersect(c_outer2))
         self.assertFalse(c_outer2.intersect(self.base_box))
 
+    def test_coord_intersect(self, ):
+        """test case for coord_intersect().
+        """
+        self.assertFalse(Box.coord_intersect(0, 2, -1, 1))
+        self.assertFalse(Box.coord_intersect(0, 2, -2, 1))
+        self.assertFalse(Box.coord_intersect(0, 2, 2, 2))
+        self.assertFalse(Box.coord_intersect(0, 2, 3, 2))
+
+        self.assertTrue(Box.coord_intersect(0, 2, -1, 2))
+        self.assertTrue(Box.coord_intersect(0, 2, 0, 1))
+        self.assertTrue(Box.coord_intersect(0, 2, 1, 2))
+        self.assertTrue(Box.coord_intersect(0, 2, 1, 1))
+
     def test_intersect(self, ):
         """
         """
