@@ -42,6 +42,36 @@ class Box(object):
         self._h = h
         self._d = d
 
+    def intersect(self, c):
+        """Check intersection with the argument.
+
+        @param c check target box object
+        """
+        if not Box.coord_intersect(self.x, self.w, c.x, c.w):
+            return False
+        if not Box.coord_intersect(self.y, self.h, c.y, c.h):
+            return False
+        if not Box.coord_intersect(self.z, self.d, c.z, c.d):
+            return False
+        return True
+
+    @staticmethod
+    def coord_intersect(c0, l0, c1, l1):
+        """Check intersection of a coordinate.
+
+        @param c0 coord-0
+        @param l0 length-0
+        @param c1 coord-1
+        @param l1 length-1
+        """
+        if c0 < c1:
+            if c0 + l0 > c1:
+                return True
+        else:
+            if c1 + l1 > c0:
+                return True
+        return False
+
     def _set_x(self, value):
         if isinstance(value, int):
             self._x = value
